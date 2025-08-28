@@ -14,22 +14,28 @@ const ListEmployeeComponent = () => {
             "firstname": "Bern",
             "lastname": "B.",
             "email": "b.b@gmail.com"
+        },
+        {
+            "id": 3,
+            "firstname": "V",
+            "lastname": "B.",
+            "email": "v.b@gmail.com"
         }
     ]
     return (
-        <div>
+        <div className='container'>
             
-            <h2>List of Employees</h2>
+            <h2 className='text-center'>List of Employees</h2>
 
-            <table>
-                <thread>
+            <table className='table table-striped table-bordered'>
+                <thead>
                     <tr>
                         <th>Employee ID</th>
                         <th>Employee First Name</th>
                         <th>Employee Last Name</th>
                         <th>Employee Email</th>
                     </tr>
-                </thread>
+                </thead>
                 <tbody>
                     {
                         dummyData.map(employee => 
@@ -41,9 +47,6 @@ const ListEmployeeComponent = () => {
                             </tr>
                         )
                     }
-                    <tr>
-
-                    </tr>
                 </tbody>
             </table>
         </div>
