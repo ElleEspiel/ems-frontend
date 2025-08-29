@@ -25,6 +25,7 @@ const ListEmployeeComponent = () => {
             <h2 className='text-center'>List of Employees</h2>
 
             <button className='btn btn-primary' onClick={addNewEmployee}>Add Employee</button>
+            <br /><br />
 
             <table className='table table-striped table-bordered'>
                 <thead>
