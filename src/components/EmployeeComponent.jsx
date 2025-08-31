@@ -19,7 +19,7 @@ const EmployeeComponent = () => {
     function saveEmployee(e){
         e.preventDefault();
 
-        if(validateForm){
+        if(validateForm()){
             const employee = {firstName, lastName, email}
             console.log(employee)
 
