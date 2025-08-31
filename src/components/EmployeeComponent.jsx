@@ -34,28 +34,28 @@ const EmployeeComponent = () => {
     function validateForm(){
         let valid = true;
 
-        const errorsCopy = {... errors}
+        const error = {... errors}
 
         if(firstName.trim()){
-            errorsCopy.firstName = '';
+            error.firstName = '';
         }else{
-            errorsCopy.firstName = 'First name is required!';
+            error.firstName = 'First name is required!';
             valid = false;
         }
         if(lastName.trim()){
-            errorsCopy.lastName = '';
+            error.lastName = '';
         }else{
-            errorsCopy.lastName = 'Last name is required!';
+            error.lastName = 'Last name is required!';
             valid = false;
         }
         if(email.trim()){
-            errorsCopy.email = '';
+            error.email = '';
         }else{
-            errorsCopy.email = 'Email is required!';
+            error.email = 'Email is required!';
             valid = false;
         }
 
-        setErrors(errorsCopy);
+        setErrors(error);
 
         return valid;
     }
