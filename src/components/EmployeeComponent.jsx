@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createEmployee, getEmployee } from '../services/EmployeeService'
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -17,12 +17,15 @@ const EmployeeComponent = () => {
     })
 
     const navigator = useNavigate();
+
     useEffect(() => {
         if(id){
             getEmployee(id).then((response) => {
                 setFristName(response.data.firstName);
                 setLastName(response.data.lastName);
                 setEmail(response.data.email);
+            }).catch(error => {
+                console.error(error);
             })
         }
     }, [id])
