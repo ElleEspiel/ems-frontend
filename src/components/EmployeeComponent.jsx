@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { createEmployee, getEmployee } from '../services/EmployeeService'
+import { createEmployee, getEmployee, updateEmployee } from '../services/EmployeeService'
 import { useNavigate, useParams } from 'react-router-dom';
 
 const EmployeeComponent = () => {
@@ -34,13 +34,26 @@ const EmployeeComponent = () => {
         e.preventDefault();
 
         if(validateForm()){
+
             const employee = {firstName, lastName, email}
             console.log(employee)
 
-            createEmployee(employee).then((response) => {
-                console.log(response.data);
-                navigator('/employees');
-        })
+            if(id){
+                updateEmployee(id, employee).then((response) => {
+                    console.log(response.data);
+                    navigator('/employees');
+                }).catch(error => {
+                    console.error(error); 
+                })
+            }else{
+                createEmployee(employee).then((response) => {
+                    console.log(response.data);
+                    navigator('/employees');
+                }).catch(error => {
+                    console.error(error); 
+                })
+            }
+            
         }
 
     }
