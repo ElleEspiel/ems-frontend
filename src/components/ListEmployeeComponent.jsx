@@ -8,12 +8,16 @@ const ListEmployeeComponent = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
+        getAllEmployees();
+    }, [])
+
+    function getAllEmployees(){
         listEmployees().then((response) => {
             setEmployees(response.data);
         }).catch(error => {
             console.error(error);
         })
-    }, [])
+    }
 
     function addNewEmployee(){
         navigator('/add-employee')
@@ -26,6 +30,12 @@ const ListEmployeeComponent = () => {
     function removeEmployee(id){
         console.log(id);
         // navigator(`/`)
+
+        deleteEmployee(id).then((response) => {
+            getAllEmployees();
+        }).catch(error => {
+            console.error(error);
+        })
     }
 
     return (
